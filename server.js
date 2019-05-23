@@ -2,20 +2,23 @@
 
 require('dotenv').config();
 
-const PORT        = process.env.PORT || 8080;
-const ENV         = process.env.ENV || "development";
-const express     = require("express");
-const bodyParser  = require("body-parser");
-const sass        = require("node-sass-middleware");
-const app         = express();
+const PORT              = process.env.PORT || 8080;
+const ENV               = process.env.ENV || "development";
+const express           = require("express");
+const bodyParser        = require("body-parser");
+const sass              = require("node-sass-middleware");
+const app               = express();
 
-const knexConfig  = require("./knexfile");
-const knex        = require("knex")(knexConfig[ENV]);
-const morgan      = require('morgan');
-const knexLogger  = require('knex-logger');
+const knexConfig        = require("./knexfile");
+const knex              = require("knex")(knexConfig[ENV]);
+const morgan            = require('morgan');
+const knexLogger        = require('knex-logger');
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
+const sendSMS   = require('./send_sms');
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
+const sendSMS = require('./send_sms');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -37,6 +40,29 @@ app.use(express.static("public"));
 
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
+
+//SMS sent to customer
+app.post('/sms', (req, res) => {
+  const twiml = new MessagingResponse();
+  sendCustomerSMS("Your order has been received! It will be ready in 30 minutes", '+15877071825')
+  twiml.message('The Robots are coming! Head for the hills!');
+
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end(twiml.toString());
+});
+
+//Order submitted to the owner SMS
+app.post("/order", (req, res) => {
+  const number = req.body.number;
+  const order = req.body.order;
+
+  // send a message to the owner
+  sendSMS(`Order submitted - ${order}`, '14034013494')
+})
+
+http.createServer(app).listen(1337, () => {
+  console.log('Express server listening on port 1337');
+});
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
