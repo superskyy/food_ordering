@@ -1,17 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- bootstrap  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+   <!-- found in the skeleton -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/top-bar.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-  <title></title>
-
+  <title>foodthingshere</title>
 </head>
+
 <body>
-<h1>Hello World</h1>
+
+  <!-- Header -->
+  <header class="header">
+    <h4 class="logo">awesomefoodthings</h4>
+  </header>
+
+<!-- Main Container -->
+<div class="container">
+
+<div class="row">
+  <!-- menu items column -->
+  <div class="col-sm-8">
+    <div class="menu">
+    <div class="thumbnail">
+      <h4 id="item-title">Title Fabulous Pizza</h4>
+      <p class="text">This one is our favourite, it has olives, fresh basil, and so much meat plus all the tomato sauce and cheese you can ever want on a pizza. It also tastes so good when it's cold.</p>
+
+      <div class="price-and-add">
+      <h4 class="price">$10.75</h4>
+      <button type="button" class="btn btn-link add-item">Add to order</button>
+    </div>
+
+    </div>
+
+
+
+    </div>
+  </div>
+
+<!-- form column -->
+  <div class="col-sm-4">
+  <form>
+  <input class="form-control form-control-lg phone" type="text" placeholder="your phone number">
+  </form>
+  <br>
+  <button type="button" class="btn btn-primary submit">Place your order</button>
+  </div>
+</div>
+</div>
+
+
+  <!-- Footer Section -->
+  <footer>
+    <p class="ft-text">Get in touch with us!</p>
+    <div class="button">email</div>
+  </footer>
+<!-- Copyrights Section -->
+  <div class="copyright">&copy;2019 - <strong>awesomefoodthings</strong></div>
+
+</body>
+</html>
 </body>
 </html>
 
