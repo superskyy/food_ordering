@@ -57,7 +57,7 @@ app.post('/sms', (req, res) => {
 //Order submitted to the owner - SMS
 app.post("/order", (req, res) => {
   number = req.body.number;
-  const order = req.body.order;
+  const order = req.body.ul;
 
   // send a message to the owner
   sendSMS(`Order submitted - ${order}`, '14034013494')
