@@ -13,12 +13,13 @@ const knexConfig        = require("./knexfile");
 const knex              = require("knex")(knexConfig[ENV]);
 const morgan            = require('morgan');
 const knexLogger        = require('knex-logger');
+const http              = require('http');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
-const sendSMS   = require('./send_sms');
+const sendSMS           = require('./send_sms');
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
-const sendSMS = require('./send_sms');
+let number;
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -43,27 +44,35 @@ app.use("/api/users", usersRoutes(knex));
 
 //SMS sent to customer
 app.post('/sms', (req, res) => {
+  console.log("NUMBER", req.body)
+  console.log('global', number)
   const twiml = new MessagingResponse();
-  sendCustomerSMS("Your order has been received! It will be ready in 30 minutes", '+15877071825')
-  twiml.message('The Robots are coming! Head for the hills!');
+  sendSMS("Your order has been received! It will be ready in 30 minutes", number)
+  twiml.message('Test!');
 
   res.writeHead(200, {'Content-Type': 'text/xml'});
   res.end(twiml.toString());
 });
 
-//Order submitted to the owner SMS
+//Order submitted to the owner - SMS
 app.post("/order", (req, res) => {
-  const number = req.body.number;
+  number = req.body.number;
   const order = req.body.order;
 
   // send a message to the owner
   sendSMS(`Order submitted - ${order}`, '14034013494')
+  res.status(200).send();
 })
 
-http.createServer(app).listen(1337, () => {
-  console.log('Express server listening on port 1337');
+http.createServer(app).listen(PORT, () => {
+  console.log(`Express server listening on port ${PORT}`);
 });
 
-app.listen(PORT, () => {
-  console.log("Example app listening on port " + PORT);
-});
+// sendSMS(
+//   "Your order has been received! It will be ready in 30 minutes",
+//   '+14034013494',
+//   '15877071825'
+// )
+// app.listen(PORT, () => {
+//   console.log("Example app listening on port " + PORT);
+// });
