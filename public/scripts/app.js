@@ -1,10 +1,26 @@
+function createMenuItem(menuData) {
+  // const picture = menuData.picture;
+  const $menuElement = $("<div>");
+
+  const $picture = $("<div>").text(menu.picture).addClass("image");
+  const $name = $("<h2>").text(menuData.name).addClass("name");
+  const $description = $("<div>").text(menuData.description);
+  const $price = $("<p>").integer(menuData.price);
+
+  $menuElement.append($picture).append($name).append($description).append($price);
+  console.log($menuElement);
+  return $menuElement;
+}
+
 $(() => {
   $.ajax({
     method: "GET",
-    url: "/api/users"
-  }).done((users) => {
-    for(user of users) {
-      $("<div>").text(user.name).appendTo($("body"));
+    url: "/api/menu"
+  }).done((menu) => {
+    console.log(menu);
+    for(item of menu) {  
+      $("<div>").prepend(createMenuItem(item));
+      console.log("rendering complete");
     }
   });;
 });
@@ -62,6 +78,11 @@ const price = $('button.add-item').on('click', function(){
 function findItemPrice(){
  return ($('.price').text());
 };
+
+
+
+
+
 
 
 
