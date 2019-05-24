@@ -1,17 +1,4 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('users', function (table) {
-    table.increments();
-    table.string('name');
-  });
-};
-
-exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('users');
-};
-
-
-/*
-exports.up = function(knex, Promise) {
   return knex.schema
   .createTable('customer', function (table) {
     table.increments();
@@ -41,6 +28,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('users','cart_items','menu','cart','customer');
+  return knex.schema.dropTable('cart_items','menu','cart','customer');
 };
-*/
