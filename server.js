@@ -72,12 +72,8 @@ app.post('/sms', (req, res) => {
 // Redirect Home page to Order page
 
 app.get("/home", (req, res) => {
-  res.render("/home.html");
-  // res.sendFile(path.join(localhost:8080 +'/home.html'));
-})
-// app.post("/home", (req, res) => {
-//   res.redirect("/")
-// });
+  res.sendFile(__dirname + "/public/home.html");
+});
 
 http.createServer(app).listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);
