@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/top-bar.css" type="text/css" />
+
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+
   <title>foodthingshere</title>
 </head>
 
@@ -23,7 +23,8 @@
 
   <!-- Header -->
   <header class="header">
-    <h4 class="logo">awesomefoodthings</h4>
+    <img class="logo-image" src="/images/logo-01.svg">
+    <h1 class="logo">awesomefoodthings</h1>
   </header>
 
 <!-- Main Container -->
@@ -39,7 +40,7 @@
 
       <div class="price-and-add">
       <h4 class="price">$10.75</h4>
-      <button type="button" class="btn btn-link add-item">Add to order</button>
+      <button type="submit" class="btn btn-link add-item">Add to order</button>
     </div>
 
     </div>
@@ -51,11 +52,15 @@
 
 <!-- form column -->
   <div class="col-sm-4">
-  <form>
-  <input class="form-control form-control-lg phone" type="text" placeholder="your phone number">
+    <span style="display: none;" id="thanks"></span>
+  <form class="phone-form">
+    <input name="number" class="form-control form-control-lg phone" type="tel" placeholder="your phone number">
+    <br>
+    <button type="submit" class="btn btn-primary submit">Place your order</button>
   </form>
-  <br>
-  <button type="button" class="btn btn-primary submit">Place your order</button>
+
+  <ul class="order-summary"></ul>
+
   </div>
 </div>
 </div>
@@ -68,9 +73,8 @@
   </footer>
 <!-- Copyrights Section -->
   <div class="copyright">&copy;2019 - <strong>awesomefoodthings</strong></div>
+<script type="text/javascript" src="/scripts/app.js"></script>
+</body>
+</html>
 
-</body>
-</html>
-</body>
-</html>
 
