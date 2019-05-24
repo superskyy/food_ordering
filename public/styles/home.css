@@ -1,0 +1,23 @@
+body {
+  background: url(pizza.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.home_image {
+  text-align: center;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+}
+
+.name {
+  font-size: 3em;
+  text-align: center;
+  color: white;
+  border: white solid 2px;
+  padding: 10px;
+  background-color: black;
+
+}
+
+
