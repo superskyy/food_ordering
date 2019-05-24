@@ -1,13 +1,15 @@
-$(() => {
-  $.ajax({
-    method: "GET",
-    url: "/api/users"
-  }).done((users) => {
-    for(user of users) {
-      $("<div>").text(user.name).appendTo($("body"));
-    }
-  });;
-});
+// $(() => {
+//   $.ajax({
+//     method: "GET",
+//     url: "/api/users"
+//   }).done((users) => {
+//     for(user of users) {
+//       $("<div>").text(user.name).appendTo($("body"));
+//     }
+//   });
+// });
+
+
 
 // get the phone number from the input // POST to /order
 $('.phone-form').on('submit', function(){
@@ -62,20 +64,3 @@ const price = $('button.add-item').on('click', function(){
 function findItemPrice(){
  return ($('.price').text());
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
