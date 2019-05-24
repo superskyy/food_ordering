@@ -5,16 +5,19 @@ body {
 
 .home_image {
   text-align: center;
-
+  /*top: 50%;*/
+  display: inline-flex;
+  align-items: center;
+/*  filter: blur(1px);*/
 }
 
 .name {
   font-size: 3em;
   text-align: center;
   color: white;
-  border: white solid 2px;
+  border: white solid 1px;
   padding: 10px;
-  background-color: black;
+  background-color: rgba(0,0,0,.7);;
   top: 50%;
   width: 100%;
 }
