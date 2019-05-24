@@ -1,3 +1,4 @@
+// build the menu items by pulling data from db in compiling individual elements for rendering on the webpage
 function createMenuItem(menuData) {
   // const picture = menuData.picture;
   const $menuElement = $("<div>");
@@ -12,14 +13,16 @@ function createMenuItem(menuData) {
   return $menuElement;
 }
 
+// get the menu and post to the main webpage
 $(() => {
   $.ajax({
     method: "GET",
     url: "/api/menu"
   }).done((menu) => {
     console.log(menu);
-    for(item of menu) {  
-      $("<div>").prepend(createMenuItem(item));
+    for(item of menu) {
+      $("<div>").text(item.name).appendTo($("body"));
+      // $(".menu").prepend(createMenuItem(item));
       console.log("rendering complete");
     }
   });;
