@@ -81,25 +81,3 @@ const price = $('button.add-item').on('click', function(){
 function findItemPrice(){
  return ($('.price').text());
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

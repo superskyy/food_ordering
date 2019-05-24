@@ -23,56 +23,74 @@
 
   <!-- Header -->
   <header class="header">
+ <!--  <header class="header"> -->
     <img class="logo-image" src="/images/logo-01.svg">
     <h1 class="logo">awesomefoodthings</h1>
+ <!--  </header> -->
   </header>
 
 <!-- Main Container -->
-<div class="container">
-
-<div class="row">
+<main class="main-container flex">
   <!-- menu items column -->
-  <div class="col-sm-8">
-    <div class="menu">
-    <div class="thumbnail">
+  <section class="menu-items">
+    <article class="thumbnail">
+      <img src="/images/img_1.png">
       <h4 id="item-title">Title Fabulous Pizza</h4>
       <p class="text">This one is our favourite, it has olives, fresh basil, and so much meat plus all the tomato sauce and cheese you can ever want on a pizza. It also tastes so good when it's cold.</p>
-
       <div class="price-and-add">
       <h4 class="price">$10.75</h4>
       <button type="submit" class="btn btn-link add-item">Add to order</button>
-    </div>
+    </article>
+  </section>
 
-    </div>
-
-
-
-    </div>
-  </div>
-
-<!-- form column -->
-  <div class="col-sm-4">
+  <!-- form column -->
+  <aside class="order-details">
     <span style="display: none;" id="thanks"></span>
-  <form class="phone-form">
-    <input name="number" class="form-control form-control-lg phone" type="tel" placeholder="your phone number">
-    <br>
-    <button type="submit" class="btn btn-primary submit">Place your order</button>
-  </form>
+    <form class="phone-form">
+      <input name="number" class="form-control form-control-lg phone" type="tel" placeholder="your phone number">
+      <br>
+      <button type="submit" class="btn btn-primary btn-lg">Place your order</button>
+    </form>
 
-  <ul class="order-summary"></ul>
+    <ul class="order-summary">
+      <li></li>
+    </ul>
 
-  </div>
+
+<div>
+<p>Order Details</p>
+Item Title
+Price
+Remove Item
+Total
 </div>
-</div>
+
+
+
+
+<!--       <div class="layout-inline row">
+        <div class="col col-pro layout-inline">
+        <p>Item title</p>
+        </div>
+
+        <div class="col col-pro layout-inline"><p>$XXXX</p></div>
+        <button type="submit" class="btn btn-link remove-item ">Remove item</button>
+        <div >Total</div>
+      </div> -->
+
+
+
+  </aside>
+</main>
 
 
   <!-- Footer Section -->
-  <footer>
+<!--   <footer>
     <p class="ft-text">Get in touch with us!</p>
     <div class="button">email</div>
-  </footer>
+  </footer> -->
 <!-- Copyrights Section -->
-  <div class="copyright">&copy;2019 - <strong>awesomefoodthings</strong></div>
+<!--   <div class="copyright">&copy;2019 - <strong>awesomefoodthings</strong></div> -->
 <script type="text/javascript" src="/scripts/app.js"></script>
 </body>
 </html>
