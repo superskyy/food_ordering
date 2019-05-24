@@ -55,14 +55,29 @@ app.post('/sms', (req, res) => {
 });
 
 //Order submitted to the owner - SMS
-app.post("/order", (req, res) => {
-  number = req.body.number;
-  const order = req.body.ul;
+  app.post("/order", (req, res) => {
+    if (req.body.number === "") {
+      console.log("The input is empty");
+      res.status(200).send();
+    } else {
+      number = req.body.number;
+      const order = req.body.ul;
 
-  // send a message to the owner
-  sendSMS(`Order submitted - ${order}`, '14034013494')
-  res.status(200).send();
+    // send a message to the owner
+    sendSMS(`Order submitted - ${order}`, '14034013494')
+    res.status(200).send();
+  }
+  });
+
+// Redirect Home page to Order page
+
+app.get("/home", (req, res) => {
+  res.render("/home.html");
+  // res.sendFile(path.join(localhost:8080 +'/home.html'));
 })
+// app.post("/home", (req, res) => {
+//   res.redirect("/")
+// });
 
 http.createServer(app).listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);

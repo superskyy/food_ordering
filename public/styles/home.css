@@ -5,9 +5,7 @@ body {
 
 .home_image {
   text-align: center;
-  top: 50%;
-  width: 100%;
-  text-align: center;
+
 }
 
 .name {
@@ -17,7 +15,14 @@ body {
   border: white solid 2px;
   padding: 10px;
   background-color: black;
+  top: 50%;
+  width: 100%;
+}
 
+.slogan {
+  font-size: 2em;
+  text-align: center;
+  color: white;
 }
 
 
