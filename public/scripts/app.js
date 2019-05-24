@@ -1,32 +1,31 @@
 // build the menu items by pulling data from db in compiling individual elements for rendering on the webpage
 function createMenuItem(menuData) {
-  // const picture = menuData.picture;
-  const $menuElement = $("<div>");
+  const picture = menuData.picture;
+  const $menu_item = $("<article>");
 
-  const $picture = $("<div>").text(menu.picture).addClass("image");
-  const $name = $("<h2>").text(menuData.name).addClass("name");
-  const $description = $("<div>").text(menuData.description);
-  const $price = $("<p>").integer(menuData.price);
+  const $picture = $(`<img src=${picture}>`);
+  const $name = $("<h4>").text(menuData.name);
+  const $description = $("<p>").text(menuData.description).addClass("text");
+  const $price = $(`<h4 class="price">${menuData.price}</h4>`);
 
-  $menuElement.append($picture).append($name).append($description).append($price);
-  console.log($menuElement);
-  return $menuElement;
+  $menu_item.append($picture).append($name).append($description).append($price);
+  return $menu_item;
 }
 
 // get the menu and post to the main webpage
-$(() => {
+
   $.ajax({
     method: "GET",
     url: "/api/menu"
   }).done((menu) => {
     console.log(menu);
     for(item of menu) {
-      $("<div>").text(item.name).appendTo($("body"));
-      // $(".menu").prepend(createMenuItem(item));
+      // $("<div>").text(item.name).appendTo($("body"));
+      $(".menu-items").append(createMenuItem(item));
       console.log("rendering complete");
     }
-  });;
-});
+  });
+
 
 // get the phone number from the input // POST to /order
 $('.phone-form').on('submit', function(){
