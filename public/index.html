@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
    <!-- found in the skeleton -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -23,10 +26,8 @@
 
   <!-- Header -->
   <header class="header">
- <!--  <header class="header"> -->
     <img class="logo-image" src="/images/logo-01.svg">
-    <h1 class="logo">awesomefoodthings</h1>
- <!--  </header> -->
+    <h1 class="logo">pinocchio pizza</h1>
   </header>
 
 <!-- Main Container -->
@@ -34,12 +35,20 @@
   <!-- menu items column -->
   <section class="menu-items">
     <article class="thumbnail">
-      <img src="/images/img_1.png">
-      <h4 id="item-title">Title Fabulous Pizza</h4>
-      <p class="text">This one is our favourite, it has olives, fresh basil, and so much meat plus all the tomato sauce and cheese you can ever want on a pizza. It also tastes so good when it's cold.</p>
-      <div class="price-and-add">
-      <h4 class="price">$10.75</h4>
-      <button type="submit" class="btn btn-link add-item">Add to order</button>
+      <div
+        style="background: url('/images/img_1.png') no-repeat center / cover;"
+        class="menu-item-image"
+        ></div>
+
+      <div class="menu-item-text">
+        <h4 class="item-title">Title Fabulous Pizza</h4>
+        <p class="text">This one is our favourite, it has olives, fresh basil, and so much meat plus all the tomato sauce and cheese you can ever want on a pizza. It also tastes so good when it's cold.</p>
+        <div class="price-and-add">
+          <h4 class="price">$10.75</h4>
+          <button type="submit" class="btn btn-link add-item">Add to order</button>
+        </div>
+      </div>
+
     </article>
   </section>
 
@@ -57,27 +66,23 @@
     </ul>
 
 
-<div>
-<p>Order Details</p>
-Item Title
-Price
-Remove Item
-Total
-</div>
-
-
-
-
-<!--       <div class="layout-inline row">
-        <div class="col col-pro layout-inline">
-        <p>Item title</p>
+    <div>
+      <p class="c-order-summary">Order Summary</p>
+      <div class="c-cart">
+        <div>
+          <span class="c-remove-item"><i class="fas fa-times"></i></span>
+          <span class="c-order-title">Fabulous Pizza</span>
         </div>
 
-        <div class="col col-pro layout-inline"><p>$XXXX</p></div>
-        <button type="submit" class="btn btn-link remove-item ">Remove item</button>
-        <div >Total</div>
-      </div> -->
+        <div class="c-price">$ 15.75</div>
 
+      </div>
+      <hr>
+      <p class="c-total">
+        <span>Total</span>
+        <span class="c-total-dollar">$ 50</span>
+      </p>
+    </div>
 
 
   </aside>
