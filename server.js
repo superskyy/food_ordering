@@ -13,13 +13,12 @@ const knexConfig        = require("./knexfile");
 const knex              = require("knex")(knexConfig[ENV]);
 const morgan            = require('morgan');
 const knexLogger        = require('knex-logger');
-const http              = require('http');
+const http              = require('http'); 
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const sendSMS           = require('./send_sms');
 
 // Seperated Routes for each Resource
-const usersRoutes = require("./routes/users");
-let number;
+const usersRoutes = require("./routes/menu");
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -40,7 +39,7 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Mount all resource routes
-app.use("/api/users", usersRoutes(knex));
+app.use("/api/menu", usersRoutes(knex));
 
 //SMS sent to customer
 app.post('/sms', (req, res) => {
