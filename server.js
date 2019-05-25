@@ -13,7 +13,7 @@ const knexConfig        = require("./knexfile");
 const knex              = require("knex")(knexConfig[ENV]);
 const morgan            = require('morgan');
 const knexLogger        = require('knex-logger');
-const http              = require('http'); 
+const http              = require('http');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const sendSMS           = require('./send_sms');
 
@@ -54,14 +54,25 @@ app.post('/sms', (req, res) => {
 });
 
 //Order submitted to the owner - SMS
-app.post("/order", (req, res) => {
-  number = req.body.number;
-  const order = req.body.ul;
+  app.post("/order", (req, res) => {
+    if (req.body.number === "") {
+      console.log("The input is empty");
+      res.status(200).send();
+    } else {
+      number = req.body.number;
+      const order = req.body.ul;
 
-  // send a message to the owner
-  sendSMS(`Order submitted - ${order}`, '14034013494')
-  res.status(200).send();
-})
+    // send a message to the owner
+    sendSMS(`Order submitted - ${order}`, '14034013494')
+    res.status(200).send();
+    }
+  });
+
+// Redirect Home page to Order page
+
+app.get("/home", (req, res) => {
+  res.sendFile(__dirname + "/public/home.html");
+});
 
 http.createServer(app).listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);

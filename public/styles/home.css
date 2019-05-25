@@ -1,0 +1,50 @@
+body {
+  background: url(pizza.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.flex-container {
+  text-align: center;
+  /*display: flex;
+  justify-content: center;
+  /*top: 50%;*/
+  /*display: inline-flex;
+  align-items: center;*/
+/*  filter: blur(1px);*/
+  /*height: 200px;
+  align-items: center;
+*/
+  display: flex;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+
+.name {
+  font-size: 3em;
+  text-align: center;
+  color: white;
+  border-bottom: white solid 4px;
+/*  padding: 10px;*/
+  background-color: rgba(0,0,0,.7);
+  letter-spacing: 4px;
+  font-family: Avenir, Sans-serif;
+  padding: 312px 310px 30px 310px;
+  /*top: 50%;
+  width: 100%;*/
+}
+/*
+.slogan {
+  font-size: 2em;
+  text-align: center;
+  color: white;
+}*/
+
+button {
+  margin: 10px;
+
+}
+
+
+
+
