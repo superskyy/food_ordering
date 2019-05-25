@@ -1,3 +1,5 @@
+
+
 // build the menu items by pulling data from db in compiling individual elements for rendering on the webpage
 function createMenuItem(menuData) {
   const picture = menuData.picture;
@@ -49,6 +51,9 @@ $('.phone-form').on('submit', function(){
 function getPhoneNumber (){
   return Number($('input.phone').val());
 };
+
+// try post again
+
 
 // get the title of the menu item after click on Add Order button
 
