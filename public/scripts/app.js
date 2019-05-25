@@ -11,6 +11,7 @@ function createMenuItem(menuData) {
   const $price = $(`<h4 class="price">$${menuData.price}</h4>`);
   const $submit = $(`<button type="submit" class="btn btn-link add-item">Add to order</button>`);
 
+
   $price_and_add.append($price).append($submit);
   $menu_item_text.append($name).append($description).append($price_and_add);
   $menu_item.append($picture).append($menu_item_text);
@@ -30,6 +31,7 @@ function createMenuItem(menuData) {
       console.log("rendering complete");
     }
   });
+
 
 
 // get the phone number from the input // POST to /order
@@ -67,21 +69,49 @@ function createOrder (title){
 
 // get the title of the menu item after click on Add Order button
 
-const title = $('button.add-item').on('click', function(){
-  console.log(findItemTitle());
-  $('ul').append(findItemTitle());
+$('button.add-item').on('click', function(){
+  const menuItem = $(this).closest('.thumbnail')
+
+  $('.c-cart-container').append(
+    `<li class="c-cart">
+      <div>
+        <span class="c-remove-item"><i class="fas fa-times"></i></span>
+        <span class="c-order-title">${findItemTitle(menuItem)}</span>
+      </div>
+      <div class="c-price">$${findItemPrice(menuItem)}</div>
+    </li>`
+  );
+
+  $('.c-total-dollar').text(`$${sumItems()}`)
+
 });
 
-function findItemTitle(){
- return ($('#item-title').text());
+function findItemTitle(parent){
+ return (parent.find('.item-title').text());
 };
 
 // get the price form the menu item
-const price = $('button.add-item').on('click', function(){
-  console.log(findItemPrice());
-  $('ul').append(findItemPrice());
+
+function findItemPrice(parent, elmSelector = '.price'){
+  return parseFloat(
+    parent.find(elmSelector).text().replace('$', "")
+  );
+};
+
+function sumItems(){
+  let sum = 0;
+  $('.c-cart').each(function(elm){
+    const parent = $(this)
+    sum += findItemPrice(parent, '.c-price')
+  })
+  return sum;
+}
+
+$('.c-cart-container').on('click', '.c-remove-item', function(){
+  $(this).closest('.c-cart').remove();
+  $('.c-total-dollar').text(`$${sumItems()}`)
 });
 
-function findItemPrice(){
- return ($('.price').text());
-};
+
+
+
