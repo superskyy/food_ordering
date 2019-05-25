@@ -33,7 +33,6 @@ function createMenuItem(menuData) {
   });
 
 
-
 // get the phone number from the input // POST to /order
 $('.phone-form').on('submit', function(){
   $.ajax({
@@ -50,22 +49,6 @@ $('.phone-form').on('submit', function(){
 function getPhoneNumber (){
   return Number($('input.phone').val());
 };
-
-
-
-// create the list item
-function createOrder (title){
-
-    let $order = `
-    <ul class="order-summary">
-     <li>
-    ${title} ${price}
-    </li>
-    </ul> `
-
-    return $order;
-  }
-
 
 // get the title of the menu item after click on Add Order button
 
@@ -98,6 +81,8 @@ function findItemPrice(parent, elmSelector = '.price'){
   );
 };
 
+// sum up the order amounts from order summary
+
 function sumItems(){
   let sum = 0;
   $('.c-cart').each(function(elm){
@@ -106,6 +91,8 @@ function sumItems(){
   })
   return sum;
 }
+
+// remove from order summary
 
 $('.c-cart-container').on('click', '.c-remove-item', function(){
   $(this).closest('.c-cart').remove();
