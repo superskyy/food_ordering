@@ -13,7 +13,7 @@ const knexConfig        = require("./knexfile");
 const knex              = require("knex")(knexConfig[ENV]);
 const morgan            = require('morgan');
 const knexLogger        = require('knex-logger');
-const http              = require('http'); 
+const http              = require('http');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const sendSMS           = require('./send_sms');
 
@@ -65,7 +65,7 @@ app.post('/sms', (req, res) => {
     // send a message to the owner
     sendSMS(`Order submitted - ${order}`, '14034013494')
     res.status(200).send();
-  }
+    }
   });
 
 // Redirect Home page to Order page

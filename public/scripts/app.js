@@ -4,7 +4,7 @@ function createMenuItem(menuData) {
   const $menu_item = $("<article>").addClass("thumbnail");
   const $menu_item_text = $("<div>").addClass("menu-item-text");
   const $price_and_add = $("<div>").addClass("price-and-add");
-    
+
   const $picture = $(`<div class="menu-item-image">`).attr("style", `background: url('${picture}') no-repeat center / cover`);
   const $name = $("<h4>").text(menuData.name).addClass("item-title");
   const $description = $("<p>").text(menuData.description).addClass("text");
