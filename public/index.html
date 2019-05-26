@@ -18,7 +18,7 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 
-  <title>foodthingshere</title>
+  <title>pinocchio pizza</title>
 </head>
 
 <body>
@@ -32,67 +32,36 @@
 <!-- Main Container -->
 <main class="main-container flex">
   <!-- menu items column -->
-  <section class="menu-items">
-    <!-- <article class="thumbnail">
-      <div
-        style="background: url('/images/img_1.png') no-repeat center / cover;"
-        class="menu-item-image"
-        ></div>
 
-      <div class="menu-item-text">
-        <h4 class="item-title">Title Fabulous Pizza</h4>
-        <p class="text">This one is our favourite, it has olives, fresh basil, and so much meat plus all the tomato sauce and cheese you can ever want on a pizza. It also tastes so good when it's cold.</p>
-        <div class="price-and-add">
-          <h4 class="price">$10.75</h4>
-          <button type="submit" class="btn btn-link add-item">Add to order</button>
-        </div>
-      </div>
-
-    </article> -->
-  </section>
+  <section class="menu-items"></section>
 
   <!-- form column -->
   <aside class="order-details">
-    <span style="display: none;" id="thanks"></span>
     <form class="phone-form">
       <input name="number" class="form-control form-control-lg phone" type="tel" placeholder="your phone number">
+      <input type="text" id="order" name="order" hidden>
       <br>
 
+    <div>
+      <p class="c-order-summary">Your order summary</p>
+      <hr>
+      <ul class="c-cart-container"></ul>
+      <p class="c-total">
+        <span>Total</span>
+        <span class="c-total-dollar"></span>
+      </p>
+    </div>
 
+    <button type="submit" class="btn btn-whatever btn-lg showmessage">Place your order</button>
 
-      <!--    <ul class="order-summary">
-        <li></li>
-      </ul> -->
+  </form>
 
-
-      <div>
-        <p class="c-order-summary">Your order summary</p>
-        <hr>
-        <ul class="c-cart-container"></ul>
-
-
-        <p class="c-total">
-          <span>Total</span>
-          <span class="c-total-dollar"></span>
-        </p>
-      </div>
-
-
-      <button type="submit" class="btn btn-whatever btn-lg">Place your order</button>
-      </form>
-  </aside>
+  <div class="message"></div>
+</aside>
+<!-- display time message after submit -->
 </main>
 
 
-  <!-- Footer Section -->
-<!--   <footer>
-    <p class="ft-text">Get in touch with us!</p>
-    <div class="button">email</div>
-  </footer> -->
-<!-- Copyrights Section -->
-<!--   <div class="copyright">&copy;2019 - <strong>awesomefoodthings</strong></div> -->
 <script type="text/javascript" src="/scripts/app.js"></script>
 </body>
 </html>
-
-

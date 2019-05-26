@@ -58,11 +58,12 @@ app.post('/sms', (req, res) => {
       res.status(200).send();
     } else {
       number = req.body.number;
-      const order = req.body.ul;
+      const order = req.body.order;
+      console.log('order', order)
 
     // send a message to the owner
     // console.log("c-cart-container", c-cart-container)
-    sendSMS(`Order submitted - ${c-cart-container}`, '14034013494')
+    sendSMS(`Order submitted - ${order}`, '14034013494')
     res.status(200).send();
     }
   });

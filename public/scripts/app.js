@@ -19,6 +19,7 @@ function createMenuItem(menuData) {
 }
 
 // get the menu and post to the main webpage
+
   $.ajax({
     method: "GET",
     url: "/api/menu"
@@ -32,17 +33,20 @@ function createMenuItem(menuData) {
   });
 
 
-
 // get the phone number from the input // POST to /order
-$('.phone-form').on('submit', function(){
+$('.phone-form').on('submit', function(ev){
+  ev.preventDefault();
+  attachOrderToForm();
+
   $.ajax({
     method: "POST",
     url: "/order",
     data: $(this).serialize(),
     success: function () {
-      $('.phone-form').reset();
-      // $('.c-cart-container');
-      $("#thanks").text("Thank you for your order!").show()
+      $('.phone').val("");
+      $(".message").slideDown('slow', function(){
+        $('.message').append(`Your order will be ready in 30 minutes.`)
+      });
     }
   })
 });
@@ -51,25 +55,17 @@ function getPhoneNumber (){
   return Number($('input.phone').val());
 };
 
+function getOrder() {
+  return $('.c-order-title').text();
+}
 
-
-// create the list item
-function createOrder (title){
-
-    let $order = `
-    <ul class="order-summary">
-     <li>
-    ${title} ${price}
-    </li>
-    </ul> `
-
-    return $order;
-  }
-
-
+function attachOrderToForm (){
+  const order = getOrder();
+  $('#order').val(order);
+}
 // get the title of the menu item after click on Add Order button
 
-$(document).on('click','button.add-item', function(){
+$(document).on('click', 'button.add-item', function(){
   const menuItem = $(this).closest('.thumbnail')
 
   $('.c-cart-container').append(
@@ -81,10 +77,18 @@ $(document).on('click','button.add-item', function(){
       <div class="c-price">$${findItemPrice(menuItem)}</div>
     </li>`
   );
-
   $('.c-total-dollar').text(`$${sumItems()}`)
-
 });
+
+// remove from order summary
+
+$('.c-cart-container').on('click', '.c-remove-item', function(){
+  $(this).closest('.c-cart').remove();
+  $('.c-total-dollar').text(`$${sumItems()}`);
+  $('.c-cart-container').append()
+});
+
+
 
 function findItemTitle(parent){
  return (parent.find('.item-title').text());
@@ -98,6 +102,7 @@ function findItemPrice(parent, elmSelector = '.price'){
   );
 };
 
+// sum up the order amounts from order summary
 function sumItems(){
   let sum = 0;
   $('.c-cart').each(function(elm){
@@ -106,12 +111,3 @@ function sumItems(){
   })
   return sum;
 }
-
-$('.c-cart-container').on('click', '.c-remove-item', function(){
-  $(this).closest('.c-cart').remove();
-  $('.c-total-dollar').text(`$${sumItems()}`)
-});
-
-
-
-
