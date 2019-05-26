@@ -91,8 +91,10 @@ body {
 }
 
 .text {
-  font-size: 1.2em;
+  font-size: 1.4em;
   line-height: 25px;
+  padding-top: 20px;
+  height: 120px;
   color: #666361;
 }
 
@@ -104,7 +106,7 @@ body {
 
 .add-item {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.5em;
   color: #e2641f;
 }
 
