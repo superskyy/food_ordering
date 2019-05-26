@@ -68,7 +68,7 @@ function createOrder (title){
 
 // get the title of the menu item after click on Add Order button
 
-$('button.add-item').on('click', function(){
+$(document).on('click','button.add-item', function(){
   const menuItem = $(this).closest('.thumbnail')
 
   $('.c-cart-container').append(
