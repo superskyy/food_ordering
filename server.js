@@ -19,7 +19,7 @@ const sendSMS           = require('./send_sms');
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/menu");
-
+let number;
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -43,7 +43,6 @@ app.use("/api/menu", usersRoutes(knex));
 
 //SMS sent to customer
 app.post('/sms', (req, res) => {
-  console.log("NUMBER", req.body)
   console.log('global', number)
   const twiml = new MessagingResponse();
   sendSMS("Your order has been received! It will be ready in 30 minutes", number)
@@ -69,7 +68,6 @@ app.post('/sms', (req, res) => {
   });
 
 // Redirect Home page to Order page
-
 app.get("/home", (req, res) => {
   res.sendFile(__dirname + "/public/home.html");
 });

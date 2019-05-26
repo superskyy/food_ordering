@@ -19,7 +19,6 @@ function createMenuItem(menuData) {
 }
 
 // get the menu and post to the main webpage
-
   $.ajax({
     method: "GET",
     url: "/api/menu"
