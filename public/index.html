@@ -33,33 +33,14 @@
 <main class="main-container flex">
   <!-- menu items column -->
 
-  <section class="menu-items">
-    <!-- pizza 1 -->
-    <article class="thumbnail">
-      <div
-        style="background: url('/images/img_3.png') no-repeat center / cover;"
-        class="menu-item-image"
-        ></div>
-
-      <div class="menu-item-text">
-        <h4 class="item-title">Bacon & Fresh Tomato</h4>
-        <p class="text">A large disc of dough, covered with tomato paste, then either only grated cheese or pieces of mozzarella cheese, or other toppings like chopped vegetables, sausages, salami and cheese.</p>
-        <div class="price-and-add">
-          <h4 class="price">$14.75</h4>
-          <button type="submit" class="btn btn-link add-item">Add to order</button>
-        </div>
-      </div>
-    </article>
-   </section>
-
+  <section class="menu-items"></section>
 
   <!-- form column -->
   <aside class="order-details">
-    <span style="display: none;" id="thanks"></span>
-  <form class="phone-form">
+    <form class="phone-form">
       <input name="number" class="form-control form-control-lg phone" type="tel" placeholder="your phone number">
+      <input type="text" id="order" name="order" hidden>
       <br>
-
 
     <div>
       <p class="c-order-summary">Your order summary</p>
@@ -71,11 +52,11 @@
       </p>
     </div>
 
- <button type="submit" class="btn btn-whatever btn-lg showmessage">Place your order</button>
+    <button type="submit" class="btn btn-whatever btn-lg showmessage">Place your order</button>
 
-</form>
+  </form>
 
-<div class="message"></div>
+  <div class="message"></div>
 </aside>
 <!-- display time message after submit -->
 

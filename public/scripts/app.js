@@ -37,14 +37,18 @@ function createMenuItem(menuData) {
 
 // get the phone number from the input // POST to /order
 $('.phone-form').on('submit', function(ev){
-  ev.preventDefault()
+  ev.preventDefault();
+  attachOrderToForm();
+
   $.ajax({
     method: "POST",
     url: "/order",
     data: $(this).serialize(),
     success: function () {
       $('.phone').val("");
-      $("#thanks").text("Thank you for your order!").show()
+      $(".message").slideDown('slow', function(){
+        $('.message').append(`Your order will be ready in 30 minutes.`)
+      });
     }
   })
 });
@@ -53,7 +57,14 @@ function getPhoneNumber (){
   return Number($('input.phone').val());
 };
 
+function getOrder() {
+  return $('.c-order-title').text();
+}
 
+function attachOrderToForm (){
+  const order = getOrder();
+  $('#order').val(order);
+}
 // get the title of the menu item after click on Add Order button
 
 $(document).on('click', 'button.add-item', function(){
@@ -79,13 +90,6 @@ $('.c-cart-container').on('click', '.c-remove-item', function(){
   $('.c-cart-container').append()
 });
 
-// display the message after order summary
-
-const showMessage = $(".showmessage").on('click', function(){
-  $(".message").slideDown('slow', function(){
-    $('.message').append(`Your order will be ready in 20 minutes.`)
-  });
-});
 
 
 function findItemTitle(parent){

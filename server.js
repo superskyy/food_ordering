@@ -17,6 +17,7 @@ const http              = require('http');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const sendSMS           = require('./send_sms');
 
+let number;
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/menu");
 
@@ -46,8 +47,7 @@ app.post('/sms', (req, res) => {
   console.log("NUMBER", req.body)
   console.log('global', number)
   const twiml = new MessagingResponse();
-  // added this line below
-  const number = req.body.number;
+
   sendSMS("Your order has been received! It will be ready in 30 minutes", number)
   twiml.message('Test!');
 
@@ -62,8 +62,8 @@ app.post('/sms', (req, res) => {
       res.status(200).send();
     } else {
       number = req.body.number;
-      const order = req.body.ul;
-
+      const order = req.body.order;
+console.log('order', order)
     // send a message to the owner
     sendSMS(`Order submitted - ${order}`, '14034013494')
     res.status(200).send();
