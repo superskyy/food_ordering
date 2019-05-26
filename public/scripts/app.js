@@ -41,6 +41,7 @@ $('.phone-form').on('submit', function(){
     data: $(this).serialize(),
     success: function () {
       $('.phone-form').reset();
+      // $('.c-cart-container');
       $("#thanks").text("Thank you for your order!").show()
     }
   })

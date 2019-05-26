@@ -43,9 +43,8 @@ app.use("/api/menu", usersRoutes(knex));
 
 //SMS sent to customer
 app.post('/sms', (req, res) => {
-  console.log('global', number)
   const twiml = new MessagingResponse();
-  sendSMS("Your order has been received! It will be ready in 30 minutes", number)
+  sendSMS("Your order has been received! It will be ready in 30 minutes", number);
   twiml.message('Test!');
 
   res.writeHead(200, {'Content-Type': 'text/xml'});
@@ -62,7 +61,8 @@ app.post('/sms', (req, res) => {
       const order = req.body.ul;
 
     // send a message to the owner
-    sendSMS(`Order submitted - ${order}`, '14034013494')
+    // console.log("c-cart-container", c-cart-container)
+    sendSMS(`Order submitted - ${c-cart-container}`, '14034013494')
     res.status(200).send();
     }
   });
@@ -79,7 +79,7 @@ http.createServer(app).listen(PORT, () => {
 // sendSMS(
 //   "Your order has been received! It will be ready in 30 minutes",
 //   '+14034013494',
-//   '15877071825'
+//   '+14038367275'
 // )
 // app.listen(PORT, () => {
 //   console.log("Example app listening on port " + PORT);
