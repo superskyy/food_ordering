@@ -18,7 +18,7 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 
-  <title>foodthingshere</title>
+  <title>pinocchio pizza</title>
 </head>
 
 <body>
@@ -32,68 +32,53 @@
 <!-- Main Container -->
 <main class="main-container flex">
   <!-- menu items column -->
+
   <section class="menu-items">
+    <!-- pizza 1 -->
     <article class="thumbnail">
       <div
-        style="background: url('/images/img_1.png') no-repeat center / cover;"
+        style="background: url('/images/img_3.png') no-repeat center / cover;"
         class="menu-item-image"
         ></div>
 
       <div class="menu-item-text">
-        <h4 class="item-title">Title Fabulous Pizza</h4>
-        <p class="text">This one is our favourite, it has olives, fresh basil, and so much meat plus all the tomato sauce and cheese you can ever want on a pizza. It also tastes so good when it's cold.</p>
+        <h4 class="item-title">Bacon & Fresh Tomato</h4>
+        <p class="text">A large disc of dough, covered with tomato paste, then either only grated cheese or pieces of mozzarella cheese, or other toppings like chopped vegetables, sausages, salami and cheese.</p>
         <div class="price-and-add">
-          <h4 class="price">$10.75</h4>
+          <h4 class="price">$14.75</h4>
           <button type="submit" class="btn btn-link add-item">Add to order</button>
         </div>
       </div>
-
     </article>
+   </section>
 
-    <article class="thumbnail">
-      <div
-        style="background: url('/images/img_1.png') no-repeat center / cover;"
-        class="menu-item-image"
-        ></div>
-
-      <div class="menu-item-text">
-        <h4 class="item-title">hghgjkhjk Pizza</h4>
-        <p class="text">This one is our favourite, it has olives, fresh basil, and so much meat plus all the tomato sauce and cheese you can ever want on a pizza. It also tastes so good when it's cold.</p>
-        <div class="price-and-add">
-          <h4 class="price">$15.75</h4>
-          <button type="submit" class="btn btn-link add-item">Add to order</button>
-        </div>
-      </div>
-
-    </article>
-  </section>
 
   <!-- form column -->
   <aside class="order-details">
     <span style="display: none;" id="thanks"></span>
-    <form class="phone-form">
+  <form class="phone-form">
       <input name="number" class="form-control form-control-lg phone" type="tel" placeholder="your phone number">
       <br>
-
-    </form>
 
 
     <div>
       <p class="c-order-summary">Your order summary</p>
       <hr>
       <ul class="c-cart-container"></ul>
-
-
       <p class="c-total">
         <span>Total</span>
         <span class="c-total-dollar"></span>
       </p>
     </div>
 
+ <button type="submit" class="btn btn-whatever btn-lg showmessage">Place your order</button>
 
- <button type="submit" class="btn btn-whatever btn-lg">Place your order</button>
+</form>
 
-  </aside>
+<div class="message"></div>
+</aside>
+<!-- display time message after submit -->
+
 </main>
 
 

@@ -36,13 +36,14 @@ function createMenuItem(menuData) {
 
 
 // get the phone number from the input // POST to /order
-$('.phone-form').on('submit', function(){
+$('.phone-form').on('submit', function(ev){
+  ev.preventDefault()
   $.ajax({
     method: "POST",
     url: "/order",
     data: $(this).serialize(),
     success: function () {
-      $('.phone-form').reset();
+      $('.phone').val("");
       $("#thanks").text("Thank you for your order!").show()
     }
   })
@@ -52,12 +53,10 @@ function getPhoneNumber (){
   return Number($('input.phone').val());
 };
 
-// try post again
-
 
 // get the title of the menu item after click on Add Order button
 
-$('button.add-item').on('click', function(){
+$(document).on('click', 'button.add-item', function(){
   const menuItem = $(this).closest('.thumbnail')
 
   $('.c-cart-container').append(
@@ -69,10 +68,25 @@ $('button.add-item').on('click', function(){
       <div class="c-price">$${findItemPrice(menuItem)}</div>
     </li>`
   );
-
   $('.c-total-dollar').text(`$${sumItems()}`)
-
 });
+
+// remove from order summary
+
+$('.c-cart-container').on('click', '.c-remove-item', function(){
+  $(this).closest('.c-cart').remove();
+  $('.c-total-dollar').text(`$${sumItems()}`);
+  $('.c-cart-container').append()
+});
+
+// display the message after order summary
+
+const showMessage = $(".showmessage").on('click', function(){
+  $(".message").slideDown('slow', function(){
+    $('.message').append(`Your order will be ready in 20 minutes.`)
+  });
+});
+
 
 function findItemTitle(parent){
  return (parent.find('.item-title').text());
@@ -87,7 +101,6 @@ function findItemPrice(parent, elmSelector = '.price'){
 };
 
 // sum up the order amounts from order summary
-
 function sumItems(){
   let sum = 0;
   $('.c-cart').each(function(elm){
@@ -96,14 +109,4 @@ function sumItems(){
   })
   return sum;
 }
-
-// remove from order summary
-
-$('.c-cart-container').on('click', '.c-remove-item', function(){
-  $(this).closest('.c-cart').remove();
-  $('.c-total-dollar').text(`$${sumItems()}`)
-});
-
-
-
 

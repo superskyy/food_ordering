@@ -46,6 +46,8 @@ app.post('/sms', (req, res) => {
   console.log("NUMBER", req.body)
   console.log('global', number)
   const twiml = new MessagingResponse();
+  // added this line below
+  const number = req.body.number;
   sendSMS("Your order has been received! It will be ready in 30 minutes", number)
   twiml.message('Test!');
 
