@@ -49,6 +49,9 @@ $('.phone-form').on('submit', function(ev){
           $('.message').append(`Your order will be ready in 30 minutes.`)
         });
       }, 30000);
+      $("button").slideUp().select();
+      $("i").slideUp().select();
+      $(".phone").slideUp().select();
     }
   })
 });
