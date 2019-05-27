@@ -44,9 +44,11 @@ $('.phone-form').on('submit', function(ev){
     data: $(this).serialize(),
     success: function () {
       $('.phone').val("");
-      $(".message").slideDown('slow', function(){
-        $('.message').append(`Your order will be ready in 30 minutes.`)
-      });
+      setTimeout(function(){
+        $(".message").slideDown('slow', function(){
+          $('.message').append(`Your order will be ready in 30 minutes.`)
+        });
+      }, 30000);
     }
   })
 });
