@@ -16,8 +16,10 @@ Pinocchio Pizza is a food-take-out-ordering application that serves both: the cu
   - Check the migrations folder to see what gets created in the DB
 6. Run the seed: `npm run knex seed:run`
   - Check the seeds file to see what gets seeded in the DB
-7. Run the server: `npm run local`
-8. Visit `http://localhost:8080/`
+7. Download ngrok from `https://ngrok.com/download`
+8. In a separate terminal run `../ngrok http 8080` 
+9. Run the server: `npm run local`
+10. Visit `http://localhost:8080/`
 
 ## Dependencies
 
