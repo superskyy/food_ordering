@@ -19,7 +19,6 @@ function createMenuItem(menuData) {
 }
 
 // get the menu and post to the main webpage
-
   $.ajax({
     method: "GET",
     url: "/api/menu"
@@ -31,7 +30,6 @@ function createMenuItem(menuData) {
       console.log("rendering complete");
     }
   });
-
 
 // get the phone number from the input // POST to /order
 $('.phone-form').on('submit', function(ev){
@@ -69,10 +67,8 @@ function attachOrderToForm (){
   $('#order').val(order);
 }
 // get the title of the menu item after click on Add Order button
-
 $(document).on('click', 'button.add-item', function(){
   const menuItem = $(this).closest('.thumbnail')
-
   $('.c-cart-container').append(
     `<li class="c-cart">
       <div>
@@ -86,21 +82,17 @@ $(document).on('click', 'button.add-item', function(){
 });
 
 // remove from order summary
-
 $('.c-cart-container').on('click', '.c-remove-item', function(){
   $(this).closest('.c-cart').remove();
   $('.c-total-dollar').text(`$${sumItems()}`);
   $('.c-cart-container').append()
 });
 
-
-
 function findItemTitle(parent){
  return (parent.find('.item-title').text());
 };
 
 // get the price form the menu item
-
 function findItemPrice(parent, elmSelector = '.price'){
   return parseFloat(
     parent.find(elmSelector).text().replace('$', "")

@@ -16,20 +16,11 @@ body {
   text-align: center;
   color: white;
   border-bottom: white solid 4px;
-/*  padding: 10px;*/
   background-color: rgba(0,0,0,.7);
   letter-spacing: 4px;
   font-family: Avenir, Sans-serif;
   padding: 570px 850px 30px 850px;
-  /*top: 50%;
-  width: 100%;*/
 }
-/*
-.slogan {
-  font-size: 2em;
-  text-align: center;
-  color: white;
-}*/
 
 button {
   margin: 10px;
@@ -41,7 +32,3 @@ button {
   font-size: 2em;
   border-radius: 10px;
 }
-
-
-
-

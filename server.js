@@ -20,9 +20,10 @@ const sendSMS           = require('./send_sms');
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/menu");
 let number;
+
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
-//         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+// The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 
 // Log knex SQL queries to STDOUT as well
@@ -59,10 +60,8 @@ app.post('/sms', (req, res) => {
     } else {
       number = req.body.number;
       const order = req.body.order;
-      console.log('order', order)
 
     // send a message to the owner
-    // console.log("c-cart-container", c-cart-container)
     sendSMS(`Order submitted - ${order}`, '14034013494')
     res.status(200).send();
     }
@@ -76,12 +75,3 @@ app.get("/home", (req, res) => {
 http.createServer(app).listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);
 });
-
-// sendSMS(
-//   "Your order has been received! It will be ready in 30 minutes",
-//   '+14034013494',
-//   '+14038367275'
-// )
-// app.listen(PORT, () => {
-//   console.log("Example app listening on port " + PORT);
-// });
