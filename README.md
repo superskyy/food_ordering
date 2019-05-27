@@ -3,8 +3,8 @@
 Pinocchio Pizza is a food-take-out-ordering application that serves both: the customer and the restaurant. It acts as an intermediary. When the customer submits the order they provide their phone number, restaurant receives the order as a SMS message. The restaurant sends a response to the customer also by SMS, which lets them know how long it will take until the order is ready for pickup. 
 
 ## Features
-![home](docs/home html.png?raw=true "Home Page")
-![index](docs/index html.png?raw=true "Index Page")
+![home](https://github.com/superskyy/food_ordering/blob/master/docs/home%20html.png)
+![index](https://github.com/superskyy/food_ordering/blob/master/docs/index%20html.png)
 
 ## Getting Started
 
